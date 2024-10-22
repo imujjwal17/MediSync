@@ -127,7 +127,7 @@ export const updateAppointment = async ({
 
     if (!updatedAppointment) throw Error("Appointment not found!");
 
-    const smsMessage = `Greetings from CarePulse. ${
+    const smsMessage = `Greetings from Medisync. ${
       type === "schedule"
         ? `Your appointment is confirmed for ${
             formatDateTime(appointment.schedule!).dateTime
