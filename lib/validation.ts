@@ -76,15 +76,6 @@ export const PatientFormValidation = z.object({
     }),
 });
 
-// export const AppointmentFormValidation = z.object({
-//   primaryPhysician: z.string().nonempty("Primary physician is required"),
-//   schedule: z.date(),
-//   reason: z.string().optional(),
-//   note: z.string().optional(),
-//   cancellationReason: z.string().optional(),
-// });
-
-
 export const CreateAppointmentSchema = z.object({
   primaryPhysician: z.string().min(2, "Select at least one doctor"),
   schedule: z.coerce.date(),
