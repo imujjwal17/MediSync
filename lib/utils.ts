@@ -5,19 +5,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export const parseStringify = (value: any) => {
-  if (value === undefined || value === null) {
-    return value; // Return as is if it's undefined or null
-  }
-
-  try {
-    return JSON.parse(JSON.stringify(value));
-  } catch (error) {
-    console.error('Failed to stringify and parse the value:', error);
-    return null; // Return null or handle it as needed
-  }
-};
-
+export const parseStringify = (value: any) => JSON.parse(JSON.stringify(value));
 
 export const convertFileToUrl = (file: File) => URL.createObjectURL(file);
 
