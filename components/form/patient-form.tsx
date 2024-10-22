@@ -8,7 +8,7 @@ import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import CustomFormField, { FormFieldType } from "@/components/custom-form-feild";
 import SubmitButton from "@/components/submit-button";
-import { createUser } from "@/lib/actions/patient-action";
+import { createUser } from "@/lib/actions/patient.action";
 
 export const PatientForm = () => {
     const router = useRouter();
@@ -25,23 +25,24 @@ export const PatientForm = () => {
 
     const onSubmit = async ({ name, email, phone }: z.infer<typeof UserFormValidation>) => {
         setIsLoading(true);
-
+    
         try {
-            const userData = { name, email, phone }
-
+            const userData = { name, email, phone };
+    
             const newUser = await createUser(userData);
-            
-            if (newUser)
+    
+            if (newUser?.$id) {
                 router.push(`/patients/${newUser.$id}/register`);
-
+            } else {
+                console.error('User data not returned correctly:', newUser);
+            }
+    
         } catch (error) {
-            console.log(error);
+            console.error('Error creating user:', error);
+        } finally {
+            setIsLoading(false);
         }
-
-        setIsLoading(false);
     };
-
-
     return (
         <Form {...form}>
             <form

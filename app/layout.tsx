@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Toaster } from 'sonner';
 import "./globals.css";
 import { Plus_Jakarta_Sans as FontSans } from "next/font/google";
 
@@ -39,6 +40,7 @@ export default function RootLayout({
         storageKey="theme"
         >
           {children}
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>

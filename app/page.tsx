@@ -1,5 +1,4 @@
 import { PatientForm } from "@/components/form/patient-form";
-import { PasskeyModal } from "@/components/passkey-modal";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -7,16 +6,14 @@ const Home = ({ searchParams }: SearchParamProps) => {
   const isAdmin = searchParams?.admin === "true";
   return (
     <div className="flex h-screen max-h-screen">
-      {isAdmin && <PasskeyModal />}
-
       <section className="remove-scrollbar container my-auto">
         <div className="sub-container max-w-[496px]">
-          <Image
+        <Image
             src="/assets/icons/logo-full.png"
-            height={1000}
-            width={1000}
+            height={2000} 
+            width={2000}   
             alt="patient"
-            className="mb-12 h-[100] w-[200]"
+            className="mb-12 h-[150px] w-[400px]"
           />
 
           <PatientForm />

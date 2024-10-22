@@ -21,7 +21,7 @@ export const PatientFormValidation = z.object({
     .string()
     .refine((phone) => /^\+\d{10,15}$/.test(phone), "Invalid phone number"),
   birthDate: z.coerce.date(),
-  gender: z.enum(["Male", "Female", "Other"]),
+  gender: z.enum(["male", "female", "other"]),
   address: z
     .string()
     .min(5, "Address must be at least 5 characters")
@@ -75,6 +75,15 @@ export const PatientFormValidation = z.object({
       message: "You must consent to privacy in order to proceed",
     }),
 });
+
+// export const AppointmentFormValidation = z.object({
+//   primaryPhysician: z.string().nonempty("Primary physician is required"),
+//   schedule: z.date(),
+//   reason: z.string().optional(),
+//   note: z.string().optional(),
+//   cancellationReason: z.string().optional(),
+// });
+
 
 export const CreateAppointmentSchema = z.object({
   primaryPhysician: z.string().min(2, "Select at least one doctor"),
