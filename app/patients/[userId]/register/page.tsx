@@ -15,10 +15,10 @@ const UserRegistrationPage = async ({
         <div className="sub-container max-w-[860px] flex-1 flex-col py-10">
           <Image
             src="/assets/icons/logo-full.png"
-            height={1000}
-            width={1000}
+            height={2000} 
+            width={2000}   
             alt="patient"
-            className="mb-12 h-10 w-fit"
+            className="mb-12 h-[150px] w-[400px]"
           />
 
           <RegisterForm user={user} />
